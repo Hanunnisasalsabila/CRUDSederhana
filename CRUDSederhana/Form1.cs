@@ -29,6 +29,8 @@ namespace CRUDSederhana
             txtEmail.Clear();
             txtTelepon.Clear();
             txtAlamat.Clear();
+
+            txtNIM.Focus();
         }
     }
 }
