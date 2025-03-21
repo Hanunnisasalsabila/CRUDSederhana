@@ -77,9 +77,10 @@ namespace CRUDSederhana
                         cmd.Parameters.AddWithValue("@Alamat", txtAlamat.Text.Trim());
 
                         int rowsAffected = cmd.ExecuteNonQuery();
-                        
+                        if (rowsAffected > 0)
+                        {
 
-                        
+                        }
                     }
                 }
             }
