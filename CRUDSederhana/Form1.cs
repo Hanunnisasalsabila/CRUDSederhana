@@ -140,10 +140,16 @@ namespace CRUDSederhana
                 MessageBox.Show("Pilih data yang akan dihapus!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        private void BtnHapus(object sender, EventArgs e)
+        {
+
+        }
+
+
         private void BtnRefresh(object sender, EventArgs e)
         {
             LoadData();
-
+            MessageBox.Show($"Jumlah Kolom: {dgvMahasiswa.ColumnCount}\nJumlah Baris: {dgvMahasiswa.RowCount}"
         }
 
     }
