@@ -140,5 +140,10 @@ namespace CRUDSederhana
                 MessageBox.Show("Pilih data yang akan dihapus!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        private void BtnRefresh(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
