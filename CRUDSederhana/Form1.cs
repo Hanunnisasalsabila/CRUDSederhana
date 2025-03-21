@@ -96,5 +96,9 @@ namespace CRUDSederhana
 
             }
         }
+        private void BtnHapus(object sender, EventArgs e)
+        {
+
+        }
     }
 }
