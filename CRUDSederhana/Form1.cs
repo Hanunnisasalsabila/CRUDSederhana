@@ -23,5 +23,8 @@ namespace CRUDSederhana
             LoadData();
         }
         private void ClearForm()
+        {
+            txtNIM.Clear();
+        }
     }
 }
