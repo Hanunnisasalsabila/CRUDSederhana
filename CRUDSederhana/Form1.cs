@@ -50,8 +50,11 @@ namespace CRUDSederhana
 
                     ClearForm();
                 }
+                catch (Exception ex)
+                {
 
+                }
             }
-        }
+            }
     }
 }
