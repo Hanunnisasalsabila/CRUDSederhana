@@ -32,5 +32,7 @@ namespace CRUDSederhana
 
             txtNIM.Focus();
         }
+        private void LoadData()
+
     }
 }
