@@ -67,6 +67,7 @@ namespace CRUDSederhana
                         MessageBox.Show("Harap isi semua data!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
+
                     conn.Open();
                     string query = "INSERT INTO Mahasiswa (NIM, Nama, Email, Telepon, Alamat) VALUES (@NIM, @Nama, @Email, @Telepon, @Alamat)";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -82,7 +83,7 @@ namespace CRUDSederhana
                         {
                             MessageBox.Show("Data berhasil ditambahkan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             LoadData();
-                            ClearForm();
+                            ClearForm(); // Auto Clear setelah tambah data
                         }
                         else
                         {
@@ -94,8 +95,8 @@ namespace CRUDSederhana
                 {
                     MessageBox.Show("Error: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
             }
+
         }
         private void BtnHapus(object sender, EventArgs e)
         {
@@ -140,49 +141,7 @@ namespace CRUDSederhana
                 MessageBox.Show("Pilih data yang akan dihapus!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        private void BtnHapus(object sender, EventArgs e)
-        {
-            if (dgvMahasiswa.SelectedRows.Count > 0)
-            {
-                DialogResult confirm = MessageBox.Show("Yakin ingin menghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (confirm == DialogResult.Yes)
-                {
-                    using (SqlConnection conn = new SqlConnection(connectionString))
-                    {
-                        try
-                        {
-                            string nim = dgvMahasiswa.SelectedRows[0].Cells["NIM"].Value.ToString();
-                            conn.Open();
-                            string query = "DELETE FROM Mahasiswa WHERE NIM = @NIM;";
-                            using (SqlCommand cmd = new SqlCommand(query, conn))
-                            {
-                                cmd.Parameters.AddWithValue("@NIM", nim);
-                                int rowsAffected = cmd.ExecuteNonQuery();
-
-                                if (rowsAffected > 0)
-                                {
-                                    MessageBox.Show("Data berhasil dihapus!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    LoadData();
-                                    ClearForm();
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Data tidak ditemukan atau gagal dihapus!", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Pilih data yang akan dihapus!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
+        
         private void BtnRefresh(object sender, EventArgs e)
         {
             LoadData();
@@ -199,11 +158,17 @@ namespace CRUDSederhana
                 txtEmail.Text = row.Cells[2].Value?.ToString();
                 txtTelepon.Text = row.Cells[3].Value?.ToString();
                 txtAlamat.Text = row.Cells[4].Value?.ToString();
-
             }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
 
         }
 
+        private void label4_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
