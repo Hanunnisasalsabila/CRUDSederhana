@@ -39,7 +39,8 @@ namespace CRUDSederhana
             {
                 try
                 {
-
+                    conn.Open();
+                    
                 }
 
             }
