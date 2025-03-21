@@ -111,7 +111,10 @@ namespace CRUDSederhana
                             string nim = dgvMahasiswa.SelectedRows[0].Cells["NIM"].Value.ToString();
                             conn.Open();
                             string query = "DELETE FROM Mahasiswa WHERE NIM = @NIM";
+                            using (SqlCommand cmd = new SqlCommand(query, conn))
+                            {
 
+                            }
                         }
                     }
                 }
