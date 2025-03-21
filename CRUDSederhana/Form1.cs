@@ -142,6 +142,7 @@ namespace CRUDSederhana
         }
         private void BtnRefresh(object sender, EventArgs e)
         {
+            LoadData();
 
         }
 
